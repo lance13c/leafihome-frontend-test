@@ -2,3 +2,9 @@ node_modules
 .idea
 data/db
 package-lock.json
+
+// Parcel Dev
+.parcel-cache/
+
+// Parcel Build
+dist/*
