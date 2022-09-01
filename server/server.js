@@ -2,13 +2,14 @@ var express = require('express');
 var mongoose = require('mongoose');
 var fs = require('fs');
 var swaggerJSDoc = require('swagger-jsdoc');
+var bodyParser = require('body-parser');
 
 var mongoUri = 'mongodb://localhost/noderest';
-mongoose.connect(mongoUri);
+mongoose.connect(mongoUri, { useMongoClient: true });
 
 var db = mongoose.connection;
-db.on('error', function() {
-	throw new Error('unable to connect to database at ' + mongoUri);
+db.on('error', function () {
+  throw new Error('unable to connect to database at ' + mongoUri);
 });
 
 var app = express();
@@ -34,24 +35,20 @@ var options = {
 
 // initialize swagger-jsdoc
 app.swaggerSpec = swaggerJSDoc(options);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/swagger', express.static('../swagger'));
+app.use('/', express.static('../dist'));
 
-
-app.configure(function() {
-	app.use(express.bodyParser());
-	app.use('/swagger', express.static('../swagger'));
-
-	//loosen up CORS for people building their own react node server for their html
-    app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-        next();
-    });
+//loosen up CORS for people building their own react node server for their html
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  next();
 });
 
 require('./models/company.js');
 require('./models/person.js');
-
 require('./routes.js')(app);
 
 app.listen(3001);
