@@ -1,0 +1,9 @@
+.BaseLayout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  width: 100%;
+  min-height: 100vh;
+}
