@@ -3,7 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import CompaniesPage from './pages/CompaniesPage';
 import HomePage from './pages/HomePage';
 
-interface AppProps {}
+interface AppProps {
+  tab: string;
+}
 
 const App: React.FunctionComponent<AppProps> = () => {
   return (

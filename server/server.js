@@ -1,21 +1,21 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var fs = require('fs');
-var swaggerJSDoc = require('swagger-jsdoc');
-var bodyParser = require('body-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+const fs = require('fs');
+const swaggerJSDoc = require('swagger-jsdoc');
+const bodyParser = require('body-parser');
 
-var mongoUri = 'mongodb://localhost/noderest';
+const mongoUri = 'mongodb://127.0.0.1:27017';
 mongoose.connect(mongoUri, { useMongoClient: true });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', function () {
   throw new Error('unable to connect to database at ' + mongoUri);
 });
 
-var app = express();
+const app = express();
 
 // swagger definition
-var swaggerDefinition = {
+const swaggerDefinition = {
   info: {
     title: 'Leafihome Frontend Test Swagger API',
     version: '1.0.0',
@@ -26,7 +26,7 @@ var swaggerDefinition = {
 };
 
 // options for the swagger docs
-var options = {
+const options = {
   // import swaggerDefinitions
   swaggerDefinition: swaggerDefinition,
   // path to the API docs

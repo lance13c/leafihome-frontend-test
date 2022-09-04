@@ -1,7 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require('mongoose');
+
+export interface CompanySchema {
+  name: string;
+  address: string;
+  revenue: string;
+  phone: string;
+}
+
 const Schema = mongoose.Schema;
+
 /**
  * @swagger
  * definition:
@@ -16,10 +23,11 @@ const Schema = mongoose.Schema;
  *       phone:
  *         type: string
  */
-const companySchema = new Schema({
-    name: String,
-    address: String,
-    revenue: Number,
-    phone: String,
+const companySchema: CompanySchema = new Schema({
+  name: String,
+  address: String,
+  revenue: Number,
+  phone: String,
 });
+
 mongoose.model('Company', companySchema);
