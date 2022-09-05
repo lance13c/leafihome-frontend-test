@@ -16,8 +16,7 @@
   },
   "scripts": {
     "dev": "pnpm -r dev",
-    "mongo": "mongod --dbpath data/db --bind_ip 127.0.0.1",
-    "start": "npm run mongo & sleep 3 & npm run server"
+    "build": "pnpm -r build"
   },
   "engines": {
     "pnpm": "^7",

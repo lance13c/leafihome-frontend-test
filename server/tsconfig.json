@@ -3,7 +3,7 @@
     "lib": ["es2021"],
     "module": "commonjs",
     "target": "es2021",
-    "outDir": "dist/server",
+    "outDir": "../dist/server",
 
     "strict": true,
     "esModuleInterop": true,

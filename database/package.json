@@ -1,0 +1,15 @@
+{
+  "name": "leafihome-frontend-test-databases",
+  "description": "databases",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {},
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "dev": "pnpm run mongo",
+    "mongo": "mongod --dbpath ./data/db --bind_ip 127.0.0.1",
+    "ts-node": "./node_modules/.bin/ts-node"
+  }
+}
