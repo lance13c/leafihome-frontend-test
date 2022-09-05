@@ -1,6 +1,7 @@
 # Leafihome Front end programming test
 
 ## Expected functionality:
+
 - A page to show a list of companies `/companies`
 - A page to show the details/full record of an existing company `/companies/id`
 - a page to create a new company `/companies/create`
@@ -9,6 +10,7 @@
 - A page to create a new person, associating them to an existing company `/people/create`
 
 ## Bonus functionality
+
 - Edit an existing company's record `/companies/id`
 - Edit a person's record `/people/id`
 - Delete a person record `/people/id`
@@ -18,37 +20,62 @@
 ## API test server
 
 ### Available Scripts
-We have two utility methods to create some test data for you, accessible via HTTP GET: 
+
+We have two utility methods to create some test data for you, accessible via HTTP GET:
+
 - [Create test companies](http://localhost:3001/swagger/index.html#!/Companies/get_importCompanies)
 - [Import people for a given company](http://localhost:3001/swagger/#!/People/get_importPeopleForCompany_companyId)
 
-#### To install all dependencies
-`npm install`
+## Setup
 
-#### Runs the server
-`npm start`
-
-### API Doc
-http://localhost:3001/swagger
+1. Install NodeJS Version: 18.8.0 via [nvm](https://github.com/nvm-sh/nvm) or https://nodejs.org/en/download/
+1. Install PNPM: https://pnpm.io/installation
+1. Install all server requirements
 
 ### Pre server reqs
-Install brew, node, npm & mongo. On OSX the commands below should work.
 
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor #fix all issues
-brew update
-brew install node
-brew tap mongodb/brew
-brew install mongodb-community
-```
+1. Install brew, node, npm & mongo. On OSX the commands below should work.
 
-Setup MongoDb data directory if folder doesn't exist
-```
-mkdir -p data/db
-```
+   ```
+   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   brew doctor #fix all issues
+   brew update
+   brew install node
+   brew tap mongodb/brew
+   brew install mongodb-community@6.0
+   ```
 
-#### Windows users run these two commands
+2. Setup MongoDb data directory if folder doesn't exist
+   ```
+   mkdir -p database/data/db
+   ```
+
+### To install all dependencies
+
+In the root directory run: `pnpm install`
+
+## Run Development
+
+This will start the database, server, and client.
+
+`pnpm dev`
+
+## Build Project (In Progress)
+
+This wil build the client and server
+
+`pnpm build`
+
+## Start Production Server (In Progress)
+
+`pnpm start`
+
+## API Doc
+
+http://localhost:3001/swagger
+
+### Windows users run these two commands
+
 ```
 npm run mongo
 npm run server

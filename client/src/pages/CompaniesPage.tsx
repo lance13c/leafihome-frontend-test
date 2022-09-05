@@ -14,8 +14,6 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
     const getCompanies = async () => {
       const response = await fetch('http://localhost:3001/companies');
 
-      console.log(response);
-
       if (response.ok) {
         const data = await response.json();
         setCompanies(data);
