@@ -33,7 +33,7 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
 
         <CompanyCardContainer>
           {companies.map((company) => {
-            return <CompanyCard {...company}></CompanyCard>;
+            return <CompanyCard key={company.name + company.address} {...company}></CompanyCard>;
           })}
         </CompanyCardContainer>
       </PagePadding>
