@@ -1,6 +1,12 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
+export interface Person {
+  name: string;
+  companyId: string;
+  email: number;
+}
 
 const Schema = mongoose.Schema;
+
 /**
  * @swagger
  * definition:
@@ -13,7 +19,7 @@ const Schema = mongoose.Schema;
  *       email:
  *         type: string
  */
-export const PersonSchema = new Schema({
+const PersonSchema = new Schema<Person>({
   name: String,
   companyId: String,
   email: String,

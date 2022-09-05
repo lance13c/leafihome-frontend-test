@@ -1,9 +1,15 @@
 import * as React from 'react';
+import { Company } from 'server/models/company';
+import CompanyCard from '../components/CompanyCard';
+import CompanyCardContainer from '../components/components/CompanyCardContainer';
 import BaseLayout from '../layouts/BaseLayout';
+import PagePadding from '../layouts/PagePadding';
 
 interface CompaniesPageProps {}
 
 const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
+  const [companies, setCompanies] = React.useState<Company[]>([]);
+
   React.useEffect(() => {
     const getCompanies = async () => {
       const response = await fetch('http://localhost:3001/companies');
@@ -12,6 +18,7 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
 
       if (response.ok) {
         const data = await response.json();
+        setCompanies(data);
         console.log(data);
       }
     };
@@ -21,7 +28,15 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
 
   return (
     <BaseLayout>
-      <h1>Companies</h1>
+      <PagePadding>
+        <h1>Companies</h1>
+
+        <CompanyCardContainer>
+          {companies.map((company) => {
+            return <CompanyCard {...company}></CompanyCard>;
+          })}
+        </CompanyCardContainer>
+      </PagePadding>
     </BaseLayout>
   );
 };

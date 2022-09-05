@@ -1,10 +1,14 @@
 node_modules
 .idea
-data/db
 package-lock.json
 
-// Parcel Dev
-.parcel-cache/
+// Distribution Folders
+client/dist
+server/dist
 
-// Parcel Build
-dist/
+// Local Database Files
+database/data
+
+
+
+

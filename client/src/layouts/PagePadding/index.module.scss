@@ -1,0 +1,7 @@
+.PagePadding {
+  padding: 10vw;
+
+  @media screen and (max-width: 500px) {
+    padding: 1rem;
+  }
+}

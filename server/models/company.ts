@@ -1,5 +1,12 @@
 import mongoose from 'mongoose';
 
+export interface Company {
+  name: string;
+  address: string;
+  revenue: number;
+  phone: string;
+}
+
 const Schema = mongoose.Schema;
 
 /**
@@ -16,7 +23,7 @@ const Schema = mongoose.Schema;
  *       phone:
  *         type: string
  */
-export const CompanySchema = new Schema({
+const CompanySchema = new Schema<Company>({
   name: String,
   address: String,
   revenue: Number,
