@@ -60,6 +60,20 @@ This will start the database, server, and client.
 
 `pnpm dev`
 
+- The **client** runs on: `http://localhost:5173`;
+- The **server** runs on: `http://localhost:3001`;
+- The **database** runs on: `http://localhost:27071`. Default Database: `test`;
+
+### Optional: All Sample Companies To Database
+
+1. Go into the `database` directory.
+1. Execute the following
+   ```
+   pnpm run ts-node ./scripts/addSampleCompanies.ts
+   ```
+
+NOTE: Make sure the database is running.
+
 ## Build Project (In Progress)
 
 This wil build the client and server
@@ -73,10 +87,3 @@ This wil build the client and server
 ## API Doc
 
 http://localhost:3001/swagger
-
-### Windows users run these two commands
-
-```
-npm run mongo
-npm run server
-```
