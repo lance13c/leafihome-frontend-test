@@ -1,11 +1,5 @@
 var mongoose = require('mongoose');
 
-export interface PersonSchema {
-  name: string;
-  companyId: string;
-  email: string;
-}
-
 const Schema = mongoose.Schema;
 /**
  * @swagger
@@ -19,10 +13,10 @@ const Schema = mongoose.Schema;
  *       email:
  *         type: string
  */
-const personSchema: PersonSchema = new Schema({
+export const PersonSchema = new Schema({
   name: String,
   companyId: String,
   email: String,
 });
 
-mongoose.model('Person', personSchema);
+mongoose.model('Person', PersonSchema);

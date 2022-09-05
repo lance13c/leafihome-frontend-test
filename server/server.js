@@ -4,7 +4,7 @@ const fs = require('fs');
 const swaggerJSDoc = require('swagger-jsdoc');
 const bodyParser = require('body-parser');
 
-const mongoUri = 'mongodb://127.0.0.1:27017';
+const mongoUri = 'mongodb://localhost:27017/local';
 mongoose.connect(mongoUri, { useMongoClient: true });
 
 const db = mongoose.connection;

@@ -4,36 +4,23 @@
   "version": "1.0.0",
   "private": false,
   "dependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "body-parser": "^1.20.0",
-    "express": "4.x",
-    "mongodb": "^4.9.1",
-    "node-fetch": "^3.2.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
     "swagger-jsdoc": "^6.2.5"
   },
   "devDependencies": {
+    "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
-    "mongoose": "^4.8.4",
-    "parcel": "^2.7.0",
-    "process": "^0.11.10",
-    "react-refresh": "0.14.0",
-    "sass": "^1.54.8",
     "ts-node": "^10.9.1",
-    "typescript": "4"
+    "tsc": "^2.0.4",
+    "typescript": "^4.8.2"
   },
   "scripts": {
     "dev": "pnpm -r dev",
-    "build:web": "./node_modules/.bin/parcel build",
-    "build:server": "./node_modules/.bin/tsc",
-    "mongo": "mongod --dbpath data/db",
-    "server": "cd server && node server.js",
+    "mongo": "mongod --dbpath data/db --bind_ip 127.0.0.1",
     "start": "npm run mongo & sleep 3 & npm run server"
   },
   "engines": {
-    "npm": "^6"
+    "pnpm": "^7",
+    "node": "^18.8.0"
   }
 }

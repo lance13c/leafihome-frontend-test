@@ -1,11 +1,4 @@
-var mongoose = require('mongoose');
-
-export interface CompanySchema {
-  name: string;
-  address: string;
-  revenue: string;
-  phone: string;
-}
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -23,11 +16,11 @@ const Schema = mongoose.Schema;
  *       phone:
  *         type: string
  */
-const companySchema: CompanySchema = new Schema({
+export const CompanySchema = new Schema({
   name: String,
   address: String,
   revenue: Number,
   phone: String,
 });
 
-mongoose.model('Company', companySchema);
+mongoose.model('Company', CompanySchema);
