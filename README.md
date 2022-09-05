@@ -52,7 +52,7 @@ We have two utility methods to create some test data for you, accessible via HTT
 
 ### To install all dependencies
 
-In the root directory run: `pnpm install`
+In the root directory run: `pnpm install -r`
 
 ## Run Development
 

@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "private": false,
   "dependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
     "body-parser": "^1.20.0",
     "express": "4.x",
     "mongodb": "^4.9.1",
