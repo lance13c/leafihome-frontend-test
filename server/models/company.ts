@@ -1,13 +1,5 @@
 import mongoose from 'mongoose';
-
-export interface Company {
-  _id: string;
-  _v: string;
-  name: string;
-  address: string;
-  revenue: number;
-  phone: string;
-}
+import { Company } from 'types';
 
 const Schema = mongoose.Schema;
 

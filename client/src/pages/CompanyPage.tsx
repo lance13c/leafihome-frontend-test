@@ -1,6 +1,7 @@
+import { Company } from '@server/types';
 import * as React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Company } from '../../../server/models/company';
+
 import BaseLayout from '../layouts/BaseLayout';
 import PagePadding from '../layouts/PagePadding';
 

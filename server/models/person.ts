@@ -1,9 +1,5 @@
 import mongoose from 'mongoose';
-export interface Person {
-  name: string;
-  companyId: string;
-  email: number;
-}
+import { Person } from 'types';
 
 const Schema = mongoose.Schema;
 

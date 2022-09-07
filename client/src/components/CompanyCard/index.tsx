@@ -1,5 +1,5 @@
 import React from 'react';
-import { Company } from '../../../../server/models/company';
+import { Company } from '../../../../server/types';
 import styles from './index.module.scss';
 
 interface CompanyCardProps extends Company {}

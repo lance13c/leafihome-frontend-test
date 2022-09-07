@@ -51,8 +51,8 @@ const initialize = async () => {
     next();
   });
 
-  require('./models/company.js');
-  require('./models/person.js');
+  require('./models/company');
+  require('./models/person');
   require('./routes.js')(app);
 
   app.listen(3001);
