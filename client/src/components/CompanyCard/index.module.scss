@@ -5,6 +5,19 @@
   min-width: 200px;
 
   flex-direction: column;
+  padding: 1rem;
+
+  background: linear-gradient(120deg, rgb(253, 254, 255), rgb(215, 241, 255) 60%);
+
+  transition: all 0.15s;
+  will-change: box-shadow;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  &:hover,
+  &:focus {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+  }
 }
 
 .companyCardHeader {
