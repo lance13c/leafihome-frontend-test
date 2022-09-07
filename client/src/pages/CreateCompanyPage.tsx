@@ -18,15 +18,22 @@ const CreateCompanyPage: React.FunctionComponent<CreateCompanyPageProps> = () =>
 
   const createCompany = debounce(async (company: Company) => {
     setIsLoading(true);
-    console.log('create company');
 
-    const response = await fetch('http://localhost:3001/companies', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(company),
-    });
+    try {
+      const response = await fetch('http://localhost:3001/companies', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(company),
+      });
 
-    console.log('response: ' + response);
+      if (!response.ok) {
+        throw new Error('Error creating company');
+      }
+    } catch (e) {
+      // TODO Make this user facing
+      console.error(e);
+    }
+
     setIsLoading(false);
   }, DEBOUNCE_WAIT_TIME);
 

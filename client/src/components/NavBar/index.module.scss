@@ -1,0 +1,21 @@
+.navItem {
+  padding: 2rem;
+
+  font-weight: 600;
+  font-size: 1.2rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.navBar {
+  position: relative;
+  display: flex;
+  align-content: center;
+
+  width: 100%;
+  height: 80px;
+
+  padding: 0 2rem;
+}

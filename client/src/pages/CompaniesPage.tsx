@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Company } from '../../../server/types';
 import CompanyCard from '../components/CompanyCard';
 import CompanyCardContainer from '../components/components/CompanyCardContainer';
+import NavBar from '../components/NavBar';
 import BaseLayout from '../layouts/BaseLayout';
 import PagePadding from '../layouts/PagePadding';
 
@@ -26,6 +27,7 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
 
   return (
     <BaseLayout>
+      <NavBar />
       <PagePadding>
         <h1>Companies</h1>
 
