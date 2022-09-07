@@ -8,6 +8,11 @@ import PagePadding from '../layouts/PagePadding';
 
 interface CompanyPageProps {}
 
+const formatCurrencyUSD = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+
 const CompanyPage: React.FunctionComponent<CompanyPageProps> = () => {
   const [company, setCompany] = React.useState<Company | null>(null);
   const { id } = useParams();
@@ -37,8 +42,22 @@ const CompanyPage: React.FunctionComponent<CompanyPageProps> = () => {
     <BaseLayout>
       <NavBar />
       <PagePadding>
-        <h1>Company</h1>
-        {company && <h2>{company.name}</h2>}
+        {company && <h1>{company.name}</h1>}
+        {company && (
+          <p>
+            Address: <span>{company.address}</span>
+          </p>
+        )}
+        {company && (
+          <p>
+            Phone Number: <span>{company.phone}</span>
+          </p>
+        )}
+        {company && (
+          <p>
+            Revenue: <span>{formatCurrencyUSD.format(company.revenue)}</span>
+          </p>
+        )}
       </PagePadding>
     </BaseLayout>
   );
