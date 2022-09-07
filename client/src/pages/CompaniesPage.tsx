@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Company } from '../../../server/types';
+import ActionBar from '../components/ActionBar';
 import CompanyCard from '../components/CompanyCard';
 import CompanyCardContainer from '../components/components/CompanyCardContainer';
 import NavBar from '../components/NavBar';
@@ -30,7 +31,7 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
       <NavBar />
       <PagePadding>
         <h1>Companies</h1>
-
+        <ActionBar />
         <CompanyCardContainer>
           {companies.map((company) => {
             return <CompanyCard key={company?._id} {...company}></CompanyCard>;

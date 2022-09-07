@@ -9,6 +9,9 @@ const NavBar: React.FunctionComponent<NavBarProps> = () => {
       <div className={styles.navItem}>
         <a href='/'>Home</a>
       </div>
+      <div className={styles.navItem}>
+        <a href='/companies'>Companies</a>
+      </div>
     </nav>
   );
 };

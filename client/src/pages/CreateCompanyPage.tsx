@@ -2,6 +2,7 @@ import { debounce, isNumber } from 'lodash-es';
 import * as React from 'react';
 import { COMPANY_DEFAULT } from '../../../server/constants';
 import { Company } from '../../../server/types';
+import NavBar from '../components/NavBar';
 import BaseLayout from '../layouts/BaseLayout';
 import PagePadding from '../layouts/PagePadding';
 
@@ -80,6 +81,7 @@ const CreateCompanyPage: React.FunctionComponent<CreateCompanyPageProps> = () =>
 
   return (
     <BaseLayout>
+      <NavBar />
       <PagePadding>
         <h1>Add A Company</h1>
         <section>

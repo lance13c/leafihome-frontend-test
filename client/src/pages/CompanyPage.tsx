@@ -1,6 +1,7 @@
 import { Company } from '@server/types';
 import * as React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 import BaseLayout from '../layouts/BaseLayout';
 import PagePadding from '../layouts/PagePadding';
@@ -34,6 +35,7 @@ const CompanyPage: React.FunctionComponent<CompanyPageProps> = () => {
 
   return (
     <BaseLayout>
+      <NavBar />
       <PagePadding>
         <h1>Company</h1>
         {company && <h2>{company.name}</h2>}
