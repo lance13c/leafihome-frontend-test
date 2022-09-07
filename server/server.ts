@@ -4,6 +4,7 @@ const fs = require('fs');
 const swaggerJSDoc = require('swagger-jsdoc');
 const bodyParser = require('body-parser');
 
+// TODO update this to use env variables
 const mongoUri = 'mongodb://127.0.0.1:27017/test';
 
 const initialize = async () => {
