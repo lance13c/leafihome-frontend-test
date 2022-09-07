@@ -21,7 +21,10 @@ exports.findById = function (req, res) {
 };
 
 exports.add = function (req, res) {
+  console.log('body', req.body);
+  // console.log('req', req);
   Company.create(req.body, function (err, company) {
+    console.log('company', company);
     if (err) {
       return console.log(err);
     } else {
@@ -34,7 +37,7 @@ exports.update = function (req, res) {
   var id = req.params.id;
   var updates = req.body;
 
-  Company.update({ _id: id }, req.body, function (err, numberAffected) {
+  Company.updateOne({ _id: id }, req.body, function (err, numberAffected) {
     if (err) {
       return console.log(err);
     }

@@ -39,7 +39,6 @@ const initialize = async () => {
 
   // initialize swagger-jsdoc
   app.swaggerSpec = swaggerJSDoc(options);
-  app.use(bodyParser.urlencoded({ extended: false }));
   app.use('/swagger', express.static('../swagger'));
   app.use('/', express.static('../dist'));
 
@@ -53,7 +52,7 @@ const initialize = async () => {
 
   require('./models/company');
   require('./models/person');
-  require('./routes.js')(app);
+  require('./routes')(app);
 
   app.listen(3001);
   console.log('Listening on port 3001...');
