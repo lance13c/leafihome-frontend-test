@@ -6,7 +6,8 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "baseUrl": ".",
-    "include": ["vite.config.ts"]
+    "include": ["vite.config.ts"],
+    "strict": true
   },
   "extends": "../tsconfig.json"
 }

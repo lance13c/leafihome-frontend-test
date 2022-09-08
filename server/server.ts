@@ -50,8 +50,8 @@ const initialize = async () => {
     next();
   });
 
-  require('./models/company');
-  require('./models/person');
+  require('./models/company/company');
+  require('./models/person/person');
   require('./routes')(app);
 
   app.listen(3001);

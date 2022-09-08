@@ -19,8 +19,8 @@ const CompanyPage: React.FunctionComponent<CompanyPageProps> = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    const getCompany = async () => {
-      if (id) {
+    const getCompany = async (companyId?: string) => {
+      if (companyId) {
         try {
           const response = await fetch(`http://localhost:3001/companies/${id}`, {
             method: 'GET',
@@ -35,7 +35,7 @@ const CompanyPage: React.FunctionComponent<CompanyPageProps> = () => {
       }
     };
 
-    getCompany();
+    getCompany(id);
   }, [id]);
 
   return (

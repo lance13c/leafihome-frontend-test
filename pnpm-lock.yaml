@@ -8,9 +8,11 @@ specifiers:
   ts-node: ^10.9.1
   tsc: ^2.0.4
   typescript: ^4.8.2
+  zod: ^3.19.0
 
 dependencies:
   swagger-jsdoc: 6.2.5_openapi-types@12.0.2
+  zod: 3.19.0
 
 devDependencies:
   '@types/node': 18.7.14
@@ -370,4 +372,8 @@ packages:
       validator: 13.7.0
     optionalDependencies:
       commander: 2.20.3
+    dev: false
+
+  /zod/3.19.0:
+    resolution: {integrity: sha512-Yw0qvUsCNGBe5YacikdMt5gVYeUuaEFVDIHKMfElrGSaBhwR3CQK6vOzgfAJOjTdGIhEeoaj8GtT+NDZrepZbw==}
     dev: false

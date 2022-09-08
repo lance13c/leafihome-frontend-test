@@ -1,23 +1,24 @@
-import { debounce } from 'lodash-es';
+import { debounce, isNumber } from 'lodash-es';
 import * as React from 'react';
-import { CompanySchemeZod } from '../../../server/models/company/validator';
 import { Company } from '../../../server/types';
 import NavBar from '../components/NavBar';
 import BaseLayout from '../layouts/BaseLayout';
 import PagePadding from '../layouts/PagePadding';
 
-interface CreateCompanyPageProps {}
+interface CreatePersonPageProps {}
 
 const DEBOUNCE_WAIT_TIME = 200;
 
-const CreateCompanyPage: React.FunctionComponent<CreateCompanyPageProps> = () => {
+const CreatePersonPage: React.FunctionComponent<CreatePersonPageProps> = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const companyNameRef = React.useRef<HTMLInputElement | null>(null);
   const companyAddressRef = React.useRef<HTMLInputElement | null>(null);
   const companyPhoneNumberRef = React.useRef<HTMLInputElement | null>(null);
   const companyRevenueRef = React.useRef<HTMLInputElement | null>(null);
 
-  const createCompany = debounce(async (company: Company) => {
+  const getCompany = () => {};
+
+  const createPerson = debounce(async (company: Company) => {
     setIsLoading(true);
 
     try {
@@ -48,30 +49,19 @@ const CreateCompanyPage: React.FunctionComponent<CreateCompanyPageProps> = () =>
       const name = companyNameRef?.current?.value;
       const address = companyAddressRef?.current?.value;
       const phoneNumber = companyPhoneNumberRef?.current?.value;
-
       const revenueAsText = companyRevenueRef?.current?.value;
 
-      // TODO: Don't default revenue, find better solution to handle nan return
-      const revenue = parseInt(revenueAsText, 10) || 0;
+      const revenue = parseInt(revenueAsText, 10);
+      if (!isNumber(revenue)) {
+        throw new Error('Revenue must be a number');
+      }
 
-      // TODO abstract to validator or helper function
-      // Convert revenue to have cents as the decimal
-      const revenueAsCents = revenue * 100;
-      const company: Company = {
+      return {
         name,
         address,
         phone: phoneNumber,
-        revenue: revenueAsCents,
+        revenue,
       };
-
-      try {
-        CompanySchemeZod.parse(company);
-
-        return company;
-      } catch (err) {
-        console.error(err);
-        return null;
-      }
     }
 
     return null;
@@ -87,14 +77,14 @@ const CreateCompanyPage: React.FunctionComponent<CreateCompanyPageProps> = () =>
       throw new Error('Company does not exist. Error parsing input values.');
     }
 
-    createCompany(company);
+    CreatePerson(company);
   };
 
   return (
     <BaseLayout>
       <NavBar />
       <PagePadding>
-        <h1>Add A Company</h1>
+        <h1>Add A Person</h1>
         <section>
           <div className='form-container'>
             <form id='company-form' onSubmit={handleOnSubmit}>
@@ -124,4 +114,4 @@ const CreateCompanyPage: React.FunctionComponent<CreateCompanyPageProps> = () =>
   );
 };
 
-export default CreateCompanyPage;
+export default CreatePersonPage;

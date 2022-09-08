@@ -1,8 +1,7 @@
-import { Company } from 'types';
+import { Person } from 'types';
 
-export const COMPANY_DEFAULT: Company = {
+export const PERSON_DEFAULT: Person = {
   name: '',
-  address: '',
-  revenue: 0,
-  phone: '',
+  companyId: '',
+  email: '',
 };

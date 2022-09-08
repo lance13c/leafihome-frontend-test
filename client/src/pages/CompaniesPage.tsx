@@ -1,4 +1,6 @@
 import * as React from 'react';
+import zod from 'zod';
+import { CompanySchemeZod } from '../../../server/models/company/validator';
 import { Company } from '../../../server/types';
 import ActionBar from '../components/ActionBar';
 import CompanyCard from '../components/CompanyCard';
@@ -14,12 +16,17 @@ const CompaniesPage: React.FunctionComponent<CompaniesPageProps> = () => {
 
   React.useEffect(() => {
     const getCompanies = async () => {
-      const response = await fetch('http://localhost:3001/companies');
+      try {
+        const response = await fetch('http://localhost:3001/companies');
 
-      if (response.ok) {
-        const data = await response.json();
-        setCompanies(data);
-        console.log(data);
+        if (response.ok) {
+          const data = await response.json();
+          const companies = zod.array(CompanySchemeZod).parse(data);
+          setCompanies(companies);
+        }
+      } catch (err) {
+        // Show Client Side
+        console.error(err);
       }
     };
 
